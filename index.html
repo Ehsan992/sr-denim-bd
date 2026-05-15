@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -398,6 +398,176 @@
         font-size: 30px;
       }
     }
+
+ /* Responsive Footer Styling */
+.footer-distributed {
+  background-color: #2c2f33;
+  width: 100%;
+  padding: 60px 0;
+  margin-top: 80px;
+  color: white;
+}
+
+/* Internal wrapper to align with the rest of your site */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows stacking on mobile */
+  gap: 40px;
+}
+
+.footer-left, .footer-right {
+  flex: 1;
+  min-width: 300px; /* Forces stack when screen is narrower than 600px approx */
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.footer-item i {
+  background-color: #33383b;
+  color: #ffffff;
+  font-size: 18px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.footer-item p {
+  margin: 0;
+  font-weight: 600;
+  color: white;
+}
+
+.footer-item p span {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  color: #92999f;
+  margin-bottom: 4px;
+}
+
+.footer-item p a {
+  color: #5383d3;
+  text-decoration: none;
+}
+
+.footer-company-about span {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.footer-company-about {
+  color: #92999f;
+  line-height: 1.6;
+}
+
+.footer-icons {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer-icons a {
+  width: 40px;
+  height: 40px;
+  background-color: #33383b;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-icons a:hover {
+  background-color: #5383d3;
+  transform: translateY(-3px);
+}
+
+/* Mobile Alignment Fix */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-item i {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Styling for the icon + text groups */
+.nav-link-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+/* Icon specific sizing */
+.nav-link-item i {
+  font-size: 22px; /* Makes the WhatsApp/Messenger icons stand out */
+}
+
+/* Brand colors on hover */
+.nav-link-item:hover .fa-whatsapp {
+  color: #25D366; /* WhatsApp Green */
+}
+
+.nav-link-item:hover .fa-facebook-messenger,
+.nav-link-item:hover .fa-facebook-square {
+  color: #0084FF; /* Messenger Blue */
+}
+
+/* Keep the emojis consistent in size */
+.nav-item {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Hide the words on mobile devices to save space */
+@media (max-width: 768px) {
+  .icon-text {
+    display: none;
+  }
+}
   </style>
 </head>
 <body>
@@ -409,19 +579,21 @@
         <span>SR DENIM BD</span>
       </div>
 
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      
 
       <div class="nav-icons">
-        <span>🔍</span>
-        <span>🛒</span>
-        <span>👤</span>
-      </div>
+  
+  <a href="https://wa.me/8801886681454" target="_blank" class="nav-link-item">
+    <i class="fa fa-whatsapp"></i>
+    <span class="icon-text">WhatsApp</span>
+  </a>
+
+<a href="https://m.me/61571996049831" target="_blank" class="nav-link-item">
+  <i class="fa-brands fa-facebook-messenger"></i>
+  <span class="icon-text">Messenger</span>
+</a>
+
+</div>
     </div>
   </header>
 
@@ -429,24 +601,20 @@
 
     <section class="hero">
       <div class="hero-text">
-        <h1>Limited Time Fashion Sale Up To 50% OFF</h1>
+        <h1>Limited Time Fashion Sale Up To 38% OFF</h1>
         <p>
           Discover premium fashion collections with modern style,
           comfort, and affordable pricing.
         </p>
-        <button class="btn">Shop Now</button>
+        <div class="cta-text">Explore Eid Deals</div>      
       </div>
 
       <div class="hero-image slider">
-        <img class="slide active" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop" alt="Fashion 1" />
+        <img class="slide active" src="1.png" alt="Fashion 1" />
 
-        <img class="slide" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop" alt="Fashion 2" />
+        <img class="slide" src="2.png" alt="Fashion 2" />
 
-        <img class="slide" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop" alt="Fashion 3" />
-
-        <img class="slide" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop" alt="Fashion 4" />
-
-        <img class="slide" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop" alt="Fashion 5" />
+        <img class="slide" src="3.png" alt="Fashion 3" />
       </div>
     </section>
 
@@ -462,44 +630,27 @@
 
       <div class="categories" id="categoriesSlider">
         <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=500&auto=format&fit=crop" alt="Denim Pant">
+          <h3>Denim Pants</h3>
+        </div>
+
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=500&auto=format&fit=crop" alt="Full Shirt">
+          <h3>Full Shirt</h3>
+        </div>
+
+
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=500&auto=format&fit=crop" alt="Drop Shoulder">
+          <h3>Drop Shoulder</h3>
+        </div>
+        <div class="category-card">
           <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=500&auto=format&fit=crop" alt="T-Shirt">
           <h3>T-Shirts</h3>
         </div>
 
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=500&auto=format&fit=crop" alt="Shoes">
-          <h3>Shoes</h3>
-        </div>
-
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop" alt="Sneakers">
-          <h3>Sneakers</h3>
-        </div>
-
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=500&auto=format&fit=crop" alt="Jackets">
-          <h3>Jackets</h3>
-        </div>
-
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=500&auto=format&fit=crop" alt="Bags">
-          <h3>Bags</h3>
-        </div>
-
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500&auto=format&fit=crop" alt="Watches">
-          <h3>Watches</h3>
-        </div>
-
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=500&auto=format&fit=crop" alt="Hoodies">
-          <h3>Hoodies</h3>
-        </div>
-
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=500&auto=format&fit=crop" alt="Fashion">
-          <h3>Fashion</h3>
-        </div>
       </div>
     </section>
 
@@ -516,15 +667,47 @@
       <h2>Let's Shop Beyond Boundaries</h2>
       <p>
         Elevate your fashion experience with premium collections,
-        exclusive discounts, and fast delivery services worldwide.
+        exclusive discounts, and fast delivery services in Whole Country.
       </p>
     </section>
 
   </main>
 
-  <footer>
-    <p>© 2026 SR DENIM BD. All Rights Reserved.</p>
-  </footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<footer class="footer-distributed">
+  <div class="container footer-container">
+    
+    <div class="footer-left">
+      <div class="footer-item">
+        <i class="fa fa-map-marker"></i>
+        <p><span>Mirpur-10, Dhaka, Bangladesh</span> Always open</p>
+      </div>
+
+      <div class="footer-item">
+        <i class="fa fa-phone"></i>
+        <p>+880 1886-681454</p>
+      </div>
+
+      <div class="footer-item">
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:srdenimbd@gmail.com">srdenimbd@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-company-about">
+        <span>SR DENIM BD</span>
+        Public group - Communities dedicated to quality denim production and Bangladeshi craftsmanship.
+      </div>
+
+      <div class="footer-icons">
+        <a href="https://www.facebook.com/profile.php?id=61571996049831"><i class="fa fa-facebook"></i></a>
+      </div>
+    </div>
+    
+  </div>
+</footer>
 
   <script>
     const products = [
