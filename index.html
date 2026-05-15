@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f4f5f7;
+      color: #111;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    header {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #111;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 18px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .hero {
+      margin-top: 30px;
+      background: white;
+      border-radius: 30px;
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      overflow: hidden;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #000;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      min-height: 420px;
+      height: 420px;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .hero-image img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .hero-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      width: 100%;
+      max-width: 520px;
+      object-fit: cover;
+      height: 100%;
+    }
+
+    .categories-wrapper {
+      margin-top: 50px;
+    }
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .category-header h2 {
+      font-size: 32px;
+    }
+
+    .category-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .category-buttons button {
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding-bottom: 10px;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-card {
+      min-width: 180px;
+      background: white;
+      padding: 25px;
+      border-radius: 24px;
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .category-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 14px;
+    }
+
+    .products-section {
+      margin-top: 60px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 24px;
+      padding: 18px;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    }
+
+    .wishlist {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      background: #f5f5f5;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .product-info {
+      margin-top: 18px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .new-price {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .add-cart {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #111827;
+      color: white;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .add-cart:hover {
+      background: black;
+    }
+
+    .banner {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      border-radius: 32px;
+      padding: 60px;
+      text-align: center;
+    }
+
+    .banner h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .banner p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+      color: #d1d5db;
+    }
+
+    footer {
+      margin-top: 80px;
+      background: white;
+      padding: 30px 0;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 25px;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 25px 18px;
+        border-radius: 20px;
+      }
+
+      .hero-image {
+        min-height: 280px;
+        height: 280px;
+        max-width: 100%;
+      }
+
+      .hero-image img {
+        border-radius: 16px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .banner {
+        padding: 35px 20px;
+        border-radius: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 34px;
+      }
+
+      .section-title h2 {
+        font-size: 26px;
+      }
+
+      .banner h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo" style="display:flex;align-items:center;gap:10px;">
+        <img src="logo.jpeg" alt="Logo" style="width:40px;height:40px;object-fit:contain;">
+        <span>SR DENIM BD</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <span>🔍</span>
+        <span>🛒</span>
+        <span>👤</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Limited Time Fashion Sale Up To 50% OFF</h1>
+        <p>
+          Discover premium fashion collections with modern style,
+          comfort, and affordable pricing.
+        </p>
+        <button class="btn">Shop Now</button>
+      </div>
+
+      <div class="hero-image slider">
+        <img class="slide active" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop" alt="Fashion 1" />
+
+        <img class="slide" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop" alt="Fashion 2" />
+
+        <img class="slide" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop" alt="Fashion 3" />
+
+        <img class="slide" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop" alt="Fashion 4" />
+
+        <img class="slide" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop" alt="Fashion 5" />
+      </div>
+    </section>
+
+    <section class="categories-wrapper">
+      <div class="category-header">
+        <h2>Categories</h2>
+
+        <div class="category-buttons">
+          <button type="button" id="scrollLeftBtn">❮</button>
+          <button type="button" id="scrollRightBtn">❯</button>
+        </div>
+      </div>
+
+      <div class="categories" id="categoriesSlider">
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=500&auto=format&fit=crop" alt="T-Shirt">
+          <h3>T-Shirts</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=500&auto=format&fit=crop" alt="Shoes">
+          <h3>Shoes</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500&auto=format&fit=crop" alt="Sneakers">
+          <h3>Sneakers</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=500&auto=format&fit=crop" alt="Jackets">
+          <h3>Jackets</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=500&auto=format&fit=crop" alt="Bags">
+          <h3>Bags</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500&auto=format&fit=crop" alt="Watches">
+          <h3>Watches</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=500&auto=format&fit=crop" alt="Hoodies">
+          <h3>Hoodies</h3>
+        </div>
+
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=500&auto=format&fit=crop" alt="Fashion">
+          <h3>Fashion</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section">
+      <div class="section-title">
+        <h2>Flash Sale</h2>
+        <button class="btn">View All</button>
+      </div>
+
+      <div class="products-grid" id="products"></div>
+    </section>
+
+    <section class="banner">
+      <h2>Let's Shop Beyond Boundaries</h2>
+      <p>
+        Elevate your fashion experience with premium collections,
+        exclusive discounts, and fast delivery services worldwide.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 SR DENIM BD. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: 'Premium Gray Jacket',
+        price: '$89',
+        oldPrice: '$120',
+        image: 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Classic White Sneakers',
+        price: '$110',
+        oldPrice: '$150',
+        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Elegant Hand Bag',
+        price: '$75',
+        oldPrice: '$99',
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Modern Black T-Shirt',
+        price: '$45',
+        oldPrice: '$70',
+        image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop'
+      }
+    ];
+
+    const productContainer = document.getElementById('products');
+
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 3000);
+
+    const categoriesSlider = document.getElementById('categoriesSlider');
+
+    document.getElementById('scrollLeftBtn').addEventListener('click', () => {
+      categoriesSlider.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    });
+
+    document.getElementById('scrollRightBtn').addEventListener('click', () => {
+      categoriesSlider.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    });
+
+    products.forEach(product => {
+      productContainer.innerHTML += `
+        <div class="product-card">
+          <div class="wishlist">❤</div>
+          <img src="${product.image}" alt="${product.name}">
+
+          <div class="product-info">
+            <h3>${product.name}</h3>
+
+            <div class="price">
+              <span class="new-price">${product.price}</span>
+              <span class="old-price">${product.oldPrice}</span>
+            </div>
+
+            <button class="add-cart">Add To Cart</button>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
